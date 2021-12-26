@@ -27,6 +27,11 @@
     "@nestjs/platform-express": "^8.2.4",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "connect-redis": "^6.0.0",
+    "dotenv": "^10.0.0",
+    "express-session": "^1.17.2",
+    "ioredis": "^4.28.2",
+    "redis": "^3.1.2",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6"
