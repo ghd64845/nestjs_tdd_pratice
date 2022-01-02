@@ -1,10 +1,10 @@
 import { Inject, MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import * as session from 'express-session';
-import RedisStore from 'connect-redis';
-import { RedisClient } from 'redis';
 
 import { envConfigService } from '@src/config/evn.config';
+import { databaseConfigService } from '@src/config/typeorm.config'
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -14,7 +14,8 @@ import { AppService } from './app.service';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.env'
-    })
+    }),
+    TypeOrmModule.forRoot(databaseConfigService.getTypeOrmConfig())
   ],
   controllers: [AppController],
   providers: [AppService],
